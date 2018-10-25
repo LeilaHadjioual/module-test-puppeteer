@@ -35,7 +35,6 @@ describe("Tests basiques", () => {
         expect(html).toContain("powered by Polr 2")
     }, timeout)
 
-
     // cette fonction est lancée avant chaque test de cette
     // série de tests
     beforeAll(async () => {
