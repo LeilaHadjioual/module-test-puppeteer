@@ -7,7 +7,7 @@ describe("Sign Up", () => {
     //test affichage sign Up
     test('home and sign-up', async () => {
         await page.goto('http://polr.campus-grenoble.fr')
-        await page.waitForSelector('#navbar li a')
+        await page.waitForSelector('nav[role="navigation"]')
         // click sur le lien "Sign Up" de la navigation
         await page.evaluate(() => {
             Array
@@ -28,7 +28,7 @@ describe("Sign Up", () => {
         // attendre que l'élément <form> soit chargé
         await page.waitForSelector('form')
         // insérer du contenu dans le formulaire; on insère le nom de l'utilisateur
-        await page.type('form[action="/signup"] input[name="username"]', "leila");
+        await page.type('form[action="/signup"] input[name="username"]', "leilaTest");
         //le mot de passe
         await page.type('form[action="/signup"] input[name="password"]', "testpassword");
         //l'adresse mail
@@ -51,7 +51,7 @@ describe("Sign Up", () => {
 
         await page.goto('http://polr.campus-grenoble.fr/admin#admin')
         //on tape un texte dans la barre de recherche avec un delai de réponse
-        await page.type('#admin_users_table_filter input[type="search"]', "leila", {delay:100})
+        await page.type('#admin_users_table_filter input[type="search"]', "leilaTest", {delay:100})
         const btndelete = await page.$eval('#admin_users_table tr td a.btn-danger', e => e.innerHTML)
         // on vérifie qu'il contient la bonne chaîne de caractères
         expect(btndelete).toContain("Delete")
